@@ -12,12 +12,10 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
-import {
-  PlusCircle as PlusCircleIcon,
-} from 'react-feather';
+import { PlusCircle as PlusCircleIcon } from 'react-feather';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   action: {
     marginBottom: theme.spacing(1),
@@ -39,7 +37,7 @@ const Header = ({ className, ...rest }) => {
       {...rest}
     >
       <Grid item>
-      <Box mt={2}></Box>
+        <Box mt={2}></Box>
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
           aria-label="breadcrumb"
@@ -50,7 +48,7 @@ const Header = ({ className, ...rest }) => {
             to="/app"
             component={RouterLink}
           >
-            Dashboard
+            Home
           </Link>
           <Link
             variant="body1"
@@ -62,16 +60,13 @@ const Header = ({ className, ...rest }) => {
           </Link>
         </Breadcrumbs>
         <Box mt={2}></Box>
-        <Typography
-          variant="h3"
-          color="textPrimary"
-        >
+        <Typography variant="h3" color="textPrimary">
           All Jobs
         </Typography>
         <Box mt={2}></Box>
       </Grid>
       <Grid item>
-      <Box mt={4}></Box>
+        <Box mt={4}></Box>
         <Button
           color="secondary"
           variant="contained"

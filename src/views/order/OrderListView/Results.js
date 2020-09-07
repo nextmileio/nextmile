@@ -23,6 +23,7 @@ import {
 } from '@material-ui/core';
 import {
   Edit as EditIcon,
+  Eye as ViewIcon,
   ArrowRight as ArrowRightIcon,
   Copy as CopyIcon
 } from 'react-feather';
@@ -106,7 +107,10 @@ const Results = ({ className, orders, ...rest }) => {
         {Math.ceil(orders.length / limit)}
       </Typography>
       <Card>
-        <CardHeader action={<GenericMoreButton />} title="List of jobs for Telstra" />
+        <CardHeader
+          action={<GenericMoreButton />}
+          title="List of jobs for Telstra"
+        />
         <Divider />
         <PerfectScrollbar>
           <Box minWidth={1150}>
@@ -120,7 +124,7 @@ const Results = ({ className, orders, ...rest }) => {
                       onChange={handleSelectAllOrders}
                     />
                   </TableCell>
-                  <TableCell>Job Number</TableCell>
+                  <TableCell>Date Posted</TableCell>
                   <TableCell>Job Title</TableCell>
                   <TableCell>Status</TableCell>
                   <TableCell align="right">Actions</TableCell>
@@ -145,7 +149,6 @@ const Results = ({ className, orders, ...rest }) => {
                         />
                       </TableCell>
                       <TableCell>
-                        {order.number}
                         <Typography variant="body2" color="textSecondary">
                           {moment(order.createdAt).format(
                             'DD MMM YYYY | hh:mm'
@@ -156,6 +159,11 @@ const Results = ({ className, orders, ...rest }) => {
                       <TableCell>{getStatusLabel(order.status)}</TableCell>
 
                       <TableCell align="right">
+                      <IconButton>
+                          <SvgIcon fontSize="small">
+                            <ViewIcon />
+                          </SvgIcon>
+                        </IconButton>
                         <IconButton>
                           <SvgIcon fontSize="small">
                             <CopyIcon />
@@ -166,10 +174,7 @@ const Results = ({ className, orders, ...rest }) => {
                             <EditIcon />
                           </SvgIcon>
                         </IconButton>
-                        <IconButton
-                          component={RouterLink}
-                          to="/app/shortlist"
-                        >
+                        <IconButton component={RouterLink} to="/app/shortlist">
                           <SvgIcon fontSize="small">
                             <ArrowRightIcon />
                           </SvgIcon>
